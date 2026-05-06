@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+app/node_modules/
+
+# Build outputs
+target/
+app/dist/
+.anchor/
+
+# Solana artifacts
+test-ledger/
+.anchor/
+
+# Environment files
+.env
+.env.local
+*.key
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
