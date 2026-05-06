@@ -1,0 +1,21 @@
+[toolchain]
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.localnet]
+shadowx_program = "3hpcugkVbNuA2iGZQFE4G3cKKyxB7xJRvTYA7JhQyST6"
+
+[programs.devnet]
+shadowx_program = "3hpcugkVbNuA2iGZQFE4G3cKKyxB7xJRvTYA7JhQyST6"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "Localnet"
+wallet = "wallet.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"

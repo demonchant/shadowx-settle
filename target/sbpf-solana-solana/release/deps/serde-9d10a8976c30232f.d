@@ -1,0 +1,14 @@
+/home/daimey/Downloads/shadowx-settle/target/sbpf-solana-solana/release/deps/serde-9d10a8976c30232f.d: /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/daimey/Downloads/shadowx-settle/target/sbpf-solana-solana/release/build/serde-83d65e7f69b296ab/out/private.rs
+
+/home/daimey/Downloads/shadowx-settle/target/sbpf-solana-solana/release/deps/libserde-9d10a8976c30232f.rlib: /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/daimey/Downloads/shadowx-settle/target/sbpf-solana-solana/release/build/serde-83d65e7f69b296ab/out/private.rs
+
+/home/daimey/Downloads/shadowx-settle/target/sbpf-solana-solana/release/deps/libserde-9d10a8976c30232f.rmeta: /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/daimey/Downloads/shadowx-settle/target/sbpf-solana-solana/release/build/serde-83d65e7f69b296ab/out/private.rs
+
+/home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs:
+/home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs:
+/home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs:
+/home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs:
+/home/daimey/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs:
+/home/daimey/Downloads/shadowx-settle/target/sbpf-solana-solana/release/build/serde-83d65e7f69b296ab/out/private.rs:
+
+# env-dep:OUT_DIR=/home/daimey/Downloads/shadowx-settle/target/sbpf-solana-solana/release/build/serde-83d65e7f69b296ab/out
