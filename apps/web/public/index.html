@@ -3,24 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShadowX Settle - Intent-Based Privacy Execution on Solana</title>
-    <meta name="description" content="Submit encrypted trading intents instead of public orders. Arcium MPC matches them privately. Solana settles atomically. Zero MEV by construction.">
-    
+    <title>ShadowX Settle - Privacy-First Intent Execution</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         * { font-family: 'Inter', sans-serif; }
         
-        .gradient-text {
-            background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero-overlay {
-            background: linear-gradient(135deg, rgba(88, 28, 135, 0.95) 0%, rgba(0, 0, 0, 0.92) 100%);
+        .hero-with-robot {
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(88, 28, 135, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1800&q=85&fm=jpg&fit=crop') center / cover;
         }
         
         .card-hover {
@@ -30,6 +24,55 @@
         .card-hover:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(147, 51, 234, 0.4);
+        }
+        
+        /* Feature Slider */
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+        }
+        
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #9333ea, #a855f7);
+            width: 0%;
+            animation: progress 15s linear infinite;
+        }
+        
+        @keyframes progress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
@@ -45,116 +88,204 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                     </svg>
                 </div>
-                <span class="text-xl font-bold text-white">ShadowX</span>
+                <span class="text-xl font-bold text-white tracking-wider">SHADOWX</span>
             </div>
             
             <div class="hidden md:flex items-center gap-8">
-                <a href="#features" class="text-purple-300 hover:text-purple-200 transition">Features</a>
-                <a href="#how-it-works" class="text-purple-300 hover:text-purple-200 transition">How It Works</a>
-                <a href="#security" class="text-purple-300 hover:text-purple-200 transition">Security</a>
-                <a href="https://shadowx-settle.vercel.app" target="_blank" class="bg-gradient-to-r from-purple-600 to-violet-600 text-white px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition">
-                    Launch Trading App
+                <a href="#features" class="text-purple-300 hover:text-purple-200 transition text-sm uppercase tracking-wider">Features</a>
+                <a href="#how-it-works" class="text-purple-300 hover:text-purple-200 transition text-sm uppercase tracking-wider">How It Works</a>
+                <a href="#why-shadowx" class="text-purple-300 hover:text-purple-200 transition text-sm uppercase tracking-wider">Why ShadowX</a>
+                <a href="https://shadowx-settle.vercel.app" target="_blank" class="bg-gradient-to-r from-purple-600 to-violet-600 text-white px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition text-sm uppercase tracking-wider font-semibold">
+                    Launch App
                 </a>
             </div>
         </div>
     </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="relative min-h-screen flex items-center bg-gradient-to-br from-black via-purple-950 to-black">
-    <div class="absolute inset-0 opacity-20">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,0,255,0.3),rgba(120,0,255,0))]"></div>
-    </div>
-    
-    <div class="relative max-w-7xl mx-auto px-6 py-32">
+<!-- Hero Section with Robot Background -->
+<section class="hero-with-robot min-h-screen flex items-center">
+    <div class="relative max-w-7xl mx-auto px-6 py-32 w-full">
         <div class="max-w-3xl" data-aos="fade-up">
             <div class="inline-block mb-6 px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full">
-                <span class="text-purple-300 text-sm font-semibold">🚀 Live on Solana Devnet</span>
+                <span class="text-purple-300 text-sm font-semibold uppercase tracking-wider">🚀 Live on Solana Devnet</span>
             </div>
             
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                Execute Privately.<br/>
-                <span class="gradient-text">Settle Atomically.</span>
+            <h1 class="text-6xl md:text-8xl font-black text-white mb-6 leading-tight">
+                Execute<br/>
+                <span class="gradient-text">Privately.</span>
             </h1>
             
-            <p class="text-xl md:text-2xl text-purple-200 mb-8 leading-relaxed">
-                Intent-based privacy execution on Solana powered by Arcium MPC. 
-                Submit encrypted intents. Zero MEV. Atomic settlement.
+            <p class="text-xl md:text-2xl text-purple-200 mb-8 leading-relaxed font-light">
+                Intent-based privacy execution on Solana powered by Arcium MPC.<br/>
+                <strong class="font-semibold text-white">Submit encrypted intents. Zero MEV. Atomic settlement.</strong>
             </p>
             
             <div class="mt-12 flex flex-wrap items-center gap-8">
                 <div>
-                    <div class="text-3xl font-bold text-white">$0</div>
-                    <div class="text-sm text-purple-300">Volume Processed</div>
+                    <div class="text-4xl font-bold text-white">$0</div>
+                    <div class="text-sm text-purple-300 uppercase tracking-wider">Volume</div>
                 </div>
                 <div>
-                    <div class="text-3xl font-bold text-white">0</div>
-                    <div class="text-sm text-purple-300">Intents Settled</div>
+                    <div class="text-4xl font-bold text-white">0</div>
+                    <div class="text-sm text-purple-300 uppercase tracking-wider">Intents</div>
                 </div>
                 <div>
-                    <div class="text-3xl font-bold text-white">Live</div>
-                    <div class="text-sm text-purple-300">On Devnet</div>
+                    <div class="text-4xl font-bold gradient-text">LIVE</div>
+                    <div class="text-sm text-purple-300 uppercase tracking-wider">On Devnet</div>
                 </div>
             </div>
             
             <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                <a href="https://shadowx-settle.vercel.app" target="_blank" class="bg-gradient-to-r from-purple-600 to-violet-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition text-center">
-                     Launch Trading App
+                <a href="https://shadowx-settle.vercel.app" target="_blank" class="bg-gradient-to-r from-purple-600 to-violet-600 text-white px-10 py-5 rounded-lg font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition text-center uppercase tracking-wider">
+                    🚀 Launch Trading App
                 </a>
-                <a href="#how-it-works" class="border-2 border-purple-500 text-purple-300 px-8 py-4 rounded-lg font-semibold hover:bg-purple-900/30 transition text-center">
-                    Learn More
+                <a href="#why-shadowx" class="border-2 border-purple-500 text-purple-300 px-10 py-5 rounded-lg font-bold text-lg hover:bg-purple-900/30 transition text-center uppercase tracking-wider">
+                    Why ShadowX?
                 </a>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Feature Slider - Why ShadowX is Better -->
+<section id="why-shadowx" class="py-24 bg-gradient-to-b from-black to-purple-950/30 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-5xl md:text-6xl font-black text-white mb-4">
+                Why <span class="gradient-text">ShadowX</span>?
+            </h2>
+            <p class="text-xl text-purple-300 max-w-2xl mx-auto font-light">
+                The only privacy-first intent execution layer on Solana
+            </p>
+        </div>
+
+        <div class="slider-container bg-gradient-to-br from-purple-900/20 to-black/50 backdrop-blur-xl rounded-3xl border border-purple-500/30 overflow-hidden">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <div class="slide-content">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-4xl font-black text-white mb-4">Complete Order Privacy</h3>
+                    <p class="text-xl text-purple-200 leading-relaxed">
+                        <strong class="text-white">Unlike Uniswap, Jupiter, or Raydium</strong> where your trades are visible before execution,<br/>
+                        ShadowX encrypts your intents <strong class="text-purple-300">end-to-end with ChaCha20-Poly1305</strong>.<br/>
+                        <span class="text-purple-400">No front-running. No sandwich attacks. Complete darkness.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-4xl font-black text-white mb-4">Zero MEV by Design</h3>
+                    <p class="text-xl text-purple-200 leading-relaxed">
+                        <strong class="text-white">Traditional DEXs lose billions to MEV annually.</strong><br/>
+                        ShadowX uses <strong class="text-purple-300">batch settlement with time-locked execution</strong>.<br/>
+                        Searchers can't see your order. Can't front-run. Can't extract value.<br/>
+                        <span class="text-purple-400">MEV eliminated, not just minimized.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-4xl font-black text-white mb-4">Arcium MPC Execution</h3>
+                    <p class="text-xl text-purple-200 leading-relaxed">
+                        <strong class="text-white">Other "private" DEXs rely on centralized relayers or trusted operators.</strong><br/>
+                        ShadowX uses <strong class="text-purple-300">Arcium's distributed MPC network</strong>.<br/>
+                        Intents matched in <span class="text-purple-400">trusted execution environments</span>.<br/>
+                        No single party can decrypt your order. Ever.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-4xl font-black text-white mb-4">Solana-Speed Settlement</h3>
+                    <p class="text-xl text-purple-200 leading-relaxed">
+                        <strong class="text-white">Privacy doesn't mean slow.</strong><br/>
+                        After MPC matching, settlement happens <strong class="text-purple-300">atomically on Solana</strong>.<br/>
+                        <span class="text-purple-400">400ms confirmation time. Sub-penny fees.</span><br/>
+                        Fast enough for HFT. Private enough for institutions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar"></div>
+        </div>
+
+        <!-- Slider Indicators -->
+        <div class="flex justify-center gap-3 mt-8">
+            <div class="slider-dot w-2 h-2 rounded-full bg-purple-500"></div>
+            <div class="slider-dot w-2 h-2 rounded-full bg-purple-500/30"></div>
+            <div class="slider-dot w-2 h-2 rounded-full bg-purple-500/30"></div>
+            <div class="slider-dot w-2 h-2 rounded-full bg-purple-500/30"></div>
+        </div>
+    </div>
+</section>
+
 <!-- Features Section -->
-<section id="features" class="py-24 bg-gradient-to-b from-black to-purple-950/30">
+<section id="features" class="py-24 bg-black">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-                Privacy-First Trading
+            <h2 class="text-5xl md:text-6xl font-black text-white mb-4">
+                Built Different
             </h2>
-            <p class="text-xl text-purple-300 max-w-2xl mx-auto">
-                Encrypted intents matched privately via Arcium MPC, settled atomically on Solana
+            <p class="text-xl text-purple-300 max-w-2xl mx-auto font-light">
+                Technical superiority across the stack
             </p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
             <div class="card-hover bg-purple-900/20 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
                 <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-violet-600 rounded-xl flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                    </svg>
+                    <span class="text-2xl">🔐</span>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-4">Encrypted Intents</h3>
+                <h3 class="text-2xl font-bold text-white mb-4">ChaCha20-Poly1305</h3>
                 <p class="text-purple-300 leading-relaxed">
-                    Your orders are encrypted with ChaCha20-Poly1305 before submission. No front-running, no sandwich attacks.
+                    Military-grade AEAD encryption. Each intent gets unique nonce. Forward secrecy guaranteed.
                 </p>
             </div>
 
             <div class="card-hover bg-purple-900/20 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
                 <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-violet-600 rounded-xl flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                    </svg>
+                    <span class="text-2xl">⚡</span>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-4">Arcium MPC</h3>
+                <h3 class="text-2xl font-bold text-white mb-4">Batch Atomicity</h3>
                 <p class="text-purple-300 leading-relaxed">
-                    Multi-party computation matches intents without revealing them. Privacy-preserving execution layer.
+                    All or nothing settlement. Time-locked batches prevent order manipulation.
                 </p>
             </div>
 
             <div class="card-hover bg-purple-900/20 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="300">
                 <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-violet-600 rounded-xl flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                    </svg>
+                    <span class="text-2xl">🛡️</span>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-4">Zero MEV</h3>
+                <h3 class="text-2xl font-bold text-white mb-4">Arcium TEE</h3>
                 <p class="text-purple-300 leading-relaxed">
-                    Batch settlement with time-locked execution. MEV eliminated by design, not by hope.
+                    MPC nodes run in trusted execution environments. Hardware-level security.
                 </p>
             </div>
         </div>
@@ -162,76 +293,43 @@
 </section>
 
 <!-- How It Works -->
-<section id="how-it-works" class="py-24 bg-gradient-to-b from-purple-950/30 to-black">
+<section id="how-it-works" class="py-24 bg-gradient-to-b from-black to-purple-950/30">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-                How ShadowX Works
+            <h2 class="text-5xl md:text-6xl font-black text-white mb-4">
+                Three Steps to Privacy
             </h2>
-            <p class="text-xl text-purple-300">
-                Three steps. Complete privacy.
-            </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-3 gap-12">
             <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white">
+                <div class="w-24 h-24 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-black text-white">
                     1
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-4">Submit Intent</h3>
+                <h3 class="text-2xl font-bold text-white mb-4">Encrypt Intent</h3>
                 <p class="text-purple-300 leading-relaxed">
-                    Connect wallet, specify amount and side. Intent encrypted locally before chain submission.
+                    Submit encrypted buy/sell intent. Encrypted locally in browser before chain submission.
                 </p>
             </div>
 
             <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white">
+                <div class="w-24 h-24 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-black text-white">
                     2
                 </div>
                 <h3 class="text-2xl font-bold text-white mb-4">MPC Matching</h3>
                 <p class="text-purple-300 leading-relaxed">
-                    Arcium verifiers decrypt and match intents in trusted execution environments.
+                    Arcium network decrypts and matches intents in distributed TEEs. No single point of failure.
                 </p>
             </div>
 
             <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white">
+                <div class="w-24 h-24 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-black text-white">
                     3
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-4">Atomic Settlement</h3>
+                <h3 class="text-2xl font-bold text-white mb-4">Atomic Settle</h3>
                 <p class="text-purple-300 leading-relaxed">
-                    Solana program settles matched pairs atomically. Batch execution prevents MEV.
+                    Solana program settles matched pairs atomically. Batch execution prevents MEV extraction.
                 </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Built With -->
-<section id="security" class="py-24 bg-black">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-                Built With
-            </h2>
-        </div>
-
-        <div class="grid md:grid-cols-4 gap-8">
-            <div class="bg-purple-900/20 border border-purple-500/30 rounded-xl p-6 text-center" data-aos="fade-up">
-                <h3 class="text-xl font-bold text-white mb-2">Solana</h3>
-                <p class="text-purple-300 text-sm">High-speed settlement layer</p>
-            </div>
-            <div class="bg-purple-900/20 border border-purple-500/30 rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-xl font-bold text-white mb-2">Arcium MPC</h3>
-                <p class="text-purple-300 text-sm">Privacy execution layer</p>
-            </div>
-            <div class="bg-purple-900/20 border border-purple-500/30 rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="text-xl font-bold text-white mb-2">Anchor</h3>
-                <p class="text-purple-300 text-sm">Smart contract framework</p>
-            </div>
-            <div class="bg-purple-900/20 border border-purple-500/30 rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="300">
-                <h3 class="text-xl font-bold text-white mb-2">TypeScript</h3>
-                <p class="text-purple-300 text-sm">Full-stack implementation</p>
             </div>
         </div>
     </div>
@@ -240,19 +338,19 @@
 <!-- CTA Section -->
 <section class="py-24 bg-gradient-to-br from-purple-950 via-black to-purple-950">
     <div class="max-w-4xl mx-auto px-6 text-center" data-aos="fade-up">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Trade Privately?
+        <h2 class="text-5xl md:text-6xl font-black text-white mb-6">
+            Trade in the Shadows
         </h2>
-        <p class="text-xl text-purple-300 mb-8">
-            Join the future of MEV-protected trading on Solana
+        <p class="text-2xl text-purple-300 mb-8 font-light">
+            Zero info leakage. Zero MEV. Maximum privacy.
         </p>
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://shadowx-settle.vercel.app" target="_blank" class="bg-gradient-to-r from-purple-600 to-violet-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition">
-                 Start Trading Now
+            <a href="https://shadowx-settle.vercel.app" target="_blank" class="bg-gradient-to-r from-purple-600 to-violet-600 text-white px-10 py-5 rounded-lg font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition uppercase tracking-wider">
+                🚀 Launch App
             </a>
-            <a href="https://explorer.solana.com/address/4GSUVffLEXNkL6i5TJL2dhSDuuubhagqfaRigo2xwKQt?cluster=devnet" target="_blank" class="border-2 border-purple-500 text-purple-300 px-8 py-4 rounded-lg font-semibold hover:bg-purple-900/30 transition">
-                View on Explorer
+            <a href="https://explorer.solana.com/address/4GSUVffLEXNkL6i5TJL2dhSDuuubhagqfaRigo2xwKQt?cluster=devnet" target="_blank" class="border-2 border-purple-500 text-purple-300 px-10 py-5 rounded-lg font-bold text-lg hover:bg-purple-900/30 transition uppercase tracking-wider">
+                View Explorer
             </a>
         </div>
     </div>
@@ -262,11 +360,11 @@
 <footer class="bg-black border-t border-purple-500/20 py-12">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center">
-            <p class="text-purple-400 mb-4">
-                Built for <span class="font-semibold text-purple-300">Colosseum Hackathon 2026</span> + Arcium
+            <p class="text-purple-400 mb-4 uppercase tracking-wider">
+                Built for <span class="font-bold text-purple-300">Colosseum Hackathon 2026</span> + Arcium
             </p>
             <p class="text-purple-500 text-sm font-mono">
-                Program ID: 4GSUVffLEXNkL6i5TJL2dhSDuuubhagqfaRigo2xwKQt
+                4GSUVffLEXNkL6i5TJL2dhSDuuubhagqfaRigo2xwKQt
             </p>
         </div>
     </div>
@@ -278,6 +376,41 @@
         duration: 800,
         once: true,
         offset: 100
+    });
+
+    // Feature Slider
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+        
+        dots.forEach((dot, i) => {
+            dot.style.background = i === index ? '#a855f7' : 'rgba(168, 85, 247, 0.3)';
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    // Auto-advance every 15 seconds
+    setInterval(nextSlide, 15000);
+
+    // Manual navigation
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentSlide = index;
+            showSlide(currentSlide);
+        });
     });
 </script>
 
