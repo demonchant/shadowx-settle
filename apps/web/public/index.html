@@ -30,7 +30,7 @@
         .slider-container {
             position: relative;
             overflow: hidden;
-            height: 400px;
+            height: 500px;
         }
         
         .slide {
@@ -39,19 +39,31 @@
             height: 100%;
             opacity: 0;
             transition: opacity 1s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         
         .slide.active {
             opacity: 1;
         }
         
+        .slide-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+        }
+        
         .slide-content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            max-width: 800px;
-            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem;
         }
         
         .progress-bar {
@@ -62,6 +74,7 @@
             background: linear-gradient(90deg, #9333ea, #a855f7);
             width: 0%;
             animation: progress 15s linear infinite;
+            z-index: 20;
         }
         
         @keyframes progress {
@@ -138,7 +151,7 @@
             
             <div class="mt-12 flex flex-col sm:flex-row gap-4">
                 <a href="https://shadowx-settle.vercel.app" target="_blank" class="bg-gradient-to-r from-purple-600 to-violet-600 text-white px-10 py-5 rounded-lg font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition text-center uppercase tracking-wider">
-                     Launch Trading App
+                    🚀 Launch Trading App
                 </a>
                 <a href="#why-shadowx" class="border-2 border-purple-500 text-purple-300 px-10 py-5 rounded-lg font-bold text-lg hover:bg-purple-900/30 transition text-center uppercase tracking-wider">
                     Why ShadowX?
@@ -161,74 +174,86 @@
         </div>
 
         <div class="slider-container bg-gradient-to-br from-purple-900/20 to-black/50 backdrop-blur-xl rounded-3xl border border-purple-500/30 overflow-hidden">
-            <!-- Slide 1 -->
+            <!-- Slide 1: Complete Order Privacy -->
             <div class="slide active">
+                <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1633419461186-7d40a38105ec?w=1200&q=80&fm=jpg&fit=crop');"></div>
                 <div class="slide-content">
-                    <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                        </svg>
+                    <div>
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-4xl md:text-5xl font-black text-white mb-6">Complete Order Privacy</h3>
+                        <p class="text-lg md:text-xl text-purple-200 leading-relaxed">
+                            <strong class="text-white">Unlike Uniswap, Jupiter, or Raydium</strong> where your trades are visible before execution,<br/>
+                            ShadowX encrypts your intents <strong class="text-purple-300">end-to-end with ChaCha20-Poly1305</strong>.<br/>
+                            <span class="text-purple-400">No front-running. No sandwich attacks. Complete darkness.</span>
+                        </p>
                     </div>
-                    <h3 class="text-4xl font-black text-white mb-4">Complete Order Privacy</h3>
-                    <p class="text-xl text-purple-200 leading-relaxed">
-                        <strong class="text-white">Unlike Uniswap, Jupiter, or Raydium</strong> where your trades are visible before execution,<br/>
-                        ShadowX encrypts your intents <strong class="text-purple-300">end-to-end with ChaCha20-Poly1305</strong>.<br/>
-                        <span class="text-purple-400">No front-running. No sandwich attacks. Complete darkness.</span>
-                    </p>
                 </div>
             </div>
 
-            <!-- Slide 2 -->
+            <!-- Slide 2: Zero MEV by Design -->
             <div class="slide">
+                <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&q=85&fm=jpg&fit=crop');"></div>
                 <div class="slide-content">
-                    <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
+                    <div>
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-4xl md:text-5xl font-black text-white mb-6">Zero MEV by Design</h3>
+                        <p class="text-lg md:text-xl text-purple-200 leading-relaxed">
+                            <strong class="text-white">Traditional DEXs lose billions to MEV annually.</strong><br/>
+                            ShadowX uses <strong class="text-purple-300">batch settlement with time-locked execution</strong>.<br/>
+                            Searchers can't see your order. Can't front-run. Can't extract value.<br/>
+                            <span class="text-purple-400">MEV eliminated, not just minimized.</span>
+                        </p>
                     </div>
-                    <h3 class="text-4xl font-black text-white mb-4">Zero MEV by Design</h3>
-                    <p class="text-xl text-purple-200 leading-relaxed">
-                        <strong class="text-white">Traditional DEXs lose billions to MEV annually.</strong><br/>
-                        ShadowX uses <strong class="text-purple-300">batch settlement with time-locked execution</strong>.<br/>
-                        Searchers can't see your order. Can't front-run. Can't extract value.<br/>
-                        <span class="text-purple-400">MEV eliminated, not just minimized.</span>
-                    </p>
                 </div>
             </div>
 
-            <!-- Slide 3 -->
+            <!-- Slide 3: Arcium MPC Execution -->
             <div class="slide">
+                <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=85&fm=jpg&fit=crop');"></div>
                 <div class="slide-content">
-                    <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
+                    <div>
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-4xl md:text-5xl font-black text-white mb-6">Arcium MPC Execution</h3>
+                        <p class="text-lg md:text-xl text-purple-200 leading-relaxed">
+                            <strong class="text-white">Other "private" DEXs rely on centralized relayers or trusted operators.</strong><br/>
+                            ShadowX uses <strong class="text-purple-300">Arcium's distributed MPC network</strong>.<br/>
+                            Intents matched in <span class="text-purple-400">trusted execution environments</span>.<br/>
+                            No single party can decrypt your order. Ever.
+                        </p>
                     </div>
-                    <h3 class="text-4xl font-black text-white mb-4">Arcium MPC Execution</h3>
-                    <p class="text-xl text-purple-200 leading-relaxed">
-                        <strong class="text-white">Other "private" DEXs rely on centralized relayers or trusted operators.</strong><br/>
-                        ShadowX uses <strong class="text-purple-300">Arcium's distributed MPC network</strong>.<br/>
-                        Intents matched in <span class="text-purple-400">trusted execution environments</span>.<br/>
-                        No single party can decrypt your order. Ever.
-                    </p>
                 </div>
             </div>
 
-            <!-- Slide 4 -->
+            <!-- Slide 4: Solana-Speed Settlement -->
             <div class="slide">
+                <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1640340434855-6084b1f4901c?w=1200&q=80&fm=jpg&fit=crop');"></div>
                 <div class="slide-content">
-                    <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                        </svg>
+                    <div>
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-4xl md:text-5xl font-black text-white mb-6">Solana-Speed Settlement</h3>
+                        <p class="text-lg md:text-xl text-purple-200 leading-relaxed">
+                            <strong class="text-white">Privacy doesn't mean slow.</strong><br/>
+                            After MPC matching, settlement happens <strong class="text-purple-300">atomically on Solana</strong>.<br/>
+                            <span class="text-purple-400">400ms confirmation time. Sub-penny fees.</span><br/>
+                            Fast enough for HFT. Private enough for institutions.
+                        </p>
                     </div>
-                    <h3 class="text-4xl font-black text-white mb-4">Solana-Speed Settlement</h3>
-                    <p class="text-xl text-purple-200 leading-relaxed">
-                        <strong class="text-white">Privacy doesn't mean slow.</strong><br/>
-                        After MPC matching, settlement happens <strong class="text-purple-300">atomically on Solana</strong>.<br/>
-                        <span class="text-purple-400">400ms confirmation time. Sub-penny fees.</span><br/>
-                        Fast enough for HFT. Private enough for institutions.
-                    </p>
                 </div>
             </div>
 
@@ -238,10 +263,10 @@
 
         <!-- Slider Indicators -->
         <div class="flex justify-center gap-3 mt-8">
-            <div class="slider-dot w-2 h-2 rounded-full bg-purple-500"></div>
-            <div class="slider-dot w-2 h-2 rounded-full bg-purple-500/30"></div>
-            <div class="slider-dot w-2 h-2 rounded-full bg-purple-500/30"></div>
-            <div class="slider-dot w-2 h-2 rounded-full bg-purple-500/30"></div>
+            <div class="slider-dot w-3 h-3 rounded-full bg-purple-500 cursor-pointer transition hover:scale-125"></div>
+            <div class="slider-dot w-3 h-3 rounded-full bg-purple-500/30 cursor-pointer transition hover:scale-125"></div>
+            <div class="slider-dot w-3 h-3 rounded-full bg-purple-500/30 cursor-pointer transition hover:scale-125"></div>
+            <div class="slider-dot w-3 h-3 rounded-full bg-purple-500/30 cursor-pointer transition hover:scale-125"></div>
         </div>
     </div>
 </section>
@@ -261,7 +286,7 @@
         <div class="grid md:grid-cols-3 gap-8">
             <div class="card-hover bg-purple-900/20 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
                 <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-violet-600 rounded-xl flex items-center justify-center mb-6">
-                    <span class="text-2xl"></span>
+                    <span class="text-2xl">🔐</span>
                 </div>
                 <h3 class="text-2xl font-bold text-white mb-4">ChaCha20-Poly1305</h3>
                 <p class="text-purple-300 leading-relaxed">
@@ -271,7 +296,7 @@
 
             <div class="card-hover bg-purple-900/20 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
                 <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-violet-600 rounded-xl flex items-center justify-center mb-6">
-                    <span class="text-2xl"></span>
+                    <span class="text-2xl">⚡</span>
                 </div>
                 <h3 class="text-2xl font-bold text-white mb-4">Batch Atomicity</h3>
                 <p class="text-purple-300 leading-relaxed">
@@ -347,7 +372,7 @@
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://shadowx-settle.vercel.app" target="_blank" class="bg-gradient-to-r from-purple-600 to-violet-600 text-white px-10 py-5 rounded-lg font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition uppercase tracking-wider">
-                 Launch App
+                🚀 Launch App
             </a>
             <a href="https://explorer.solana.com/address/4GSUVffLEXNkL6i5TJL2dhSDuuubhagqfaRigo2xwKQt?cluster=devnet" target="_blank" class="border-2 border-purple-500 text-purple-300 px-10 py-5 rounded-lg font-bold text-lg hover:bg-purple-900/30 transition uppercase tracking-wider">
                 View Explorer
