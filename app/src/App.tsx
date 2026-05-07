@@ -48,109 +48,109 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-black via-purple-950 to-black">
       {/* Navbar */}
       <nav className="border-b border-purple-500/20 bg-black/40 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-violet-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/50">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-600 to-violet-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/50">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                 </svg>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-white tracking-wider">SHADOWX</h1>
-                <p className="text-xs text-purple-300">Privacy Execution</p>
+                <h1 className="text-base sm:text-xl font-bold text-white tracking-wider">SHADOWX</h1>
+                <p className="text-[10px] sm:text-xs text-purple-300 hidden sm:block">Privacy Execution</p>
               </div>
             </div>
             
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <a 
                 href="https://explorer.solana.com/address/4GSUVffLEXNkL6i5TJL2dhSDuuubhagqfaRigo2xwKQt?cluster=devnet" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-purple-300 hover:text-purple-400 transition flex items-center gap-1"
+                className="hidden sm:flex text-sm text-purple-300 hover:text-purple-400 transition items-center gap-1"
               >
                 Explorer <ExternalLink className="w-3 h-3" />
               </a>
-              <WalletMultiButton />
+              <WalletMultiButton className="!text-xs sm:!text-sm !py-2 !px-3 sm:!px-4" />
             </div>
           </div>
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
         {/* Stats Grid */}
-        <div className="grid grid-cols-4 gap-4 mb-8">
-          <div className="bg-purple-900/20 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30 hover:border-purple-500/50 transition-all">
-            <div className="flex items-center justify-between mb-3">
-              <Activity className="w-5 h-5 text-purple-400" />
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+          <div className="bg-purple-900/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-purple-500/30 hover:border-purple-500/50 transition-all">
+            <div className="flex items-center justify-between mb-2 sm:mb-3">
+              <Activity className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse"></div>
             </div>
-            <div className="text-3xl font-bold text-white mb-1">Devnet</div>
-            <div className="text-xs text-purple-300">Network Status</div>
+            <div className="text-xl sm:text-3xl font-bold text-white mb-1">Devnet</div>
+            <div className="text-[10px] sm:text-xs text-purple-300">Network Status</div>
           </div>
 
-          <div className="bg-purple-900/20 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30 hover:border-purple-500/50 transition-all">
-            <div className="flex items-center justify-between mb-3">
-              <DollarSign className="w-5 h-5 text-violet-400" />
-              <Zap className="w-4 h-4 text-yellow-400" />
+          <div className="bg-purple-900/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-purple-500/30 hover:border-purple-500/50 transition-all">
+            <div className="flex items-center justify-between mb-2 sm:mb-3">
+              <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-violet-400" />
+              <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400" />
             </div>
-            <div className="text-3xl font-bold text-white mb-1">
+            <div className="text-xl sm:text-3xl font-bold text-white mb-1">
               {loading ? '...' : `${(poolState?.feeBps || 0) / 100}%`}
             </div>
-            <div className="text-xs text-purple-300">Trading Fee</div>
+            <div className="text-[10px] sm:text-xs text-purple-300">Trading Fee</div>
           </div>
 
-          <div className="bg-purple-900/20 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30 hover:border-purple-500/50 transition-all">
-            <div className="flex items-center justify-between mb-3">
-              <TrendingUp className="w-5 h-5 text-blue-400" />
-              <Lock className="w-4 h-4 text-purple-400" />
+          <div className="bg-purple-900/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-purple-500/30 hover:border-purple-500/50 transition-all">
+            <div className="flex items-center justify-between mb-2 sm:mb-3">
+              <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+              <Lock className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400" />
             </div>
-            <div className="text-2xl font-bold text-white mb-1 truncate">
+            <div className="text-xl sm:text-2xl font-bold text-white mb-1 truncate">
               {loading ? '...' : poolState?.minSettlementDelaySlots || 0}
             </div>
-            <div className="text-xs text-purple-300">Min Delay (slots)</div>
+            <div className="text-[10px] sm:text-xs text-purple-300">Min Delay (slots)</div>
           </div>
 
-          <div className="bg-purple-900/20 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30 hover:border-purple-500/50 transition-all">
-            <div className="flex items-center justify-between mb-3">
-              <Shield className="w-5 h-5 text-purple-400" />
-              <div className={`text-xs px-2 py-1 rounded ${poolState?.locked ? 'bg-red-500/20 text-red-400' : 'bg-green-500/20 text-green-400'}`}>
+          <div className="bg-purple-900/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-purple-500/30 hover:border-purple-500/50 transition-all">
+            <div className="flex items-center justify-between mb-2 sm:mb-3">
+              <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
+              <div className={`text-[9px] sm:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded ${poolState?.locked ? 'bg-red-500/20 text-red-400' : 'bg-green-500/20 text-green-400'}`}>
                 {loading ? '...' : poolState?.locked ? 'Locked' : 'Active'}
               </div>
             </div>
-            <div className="text-3xl font-bold text-white mb-1">
+            <div className="text-xl sm:text-3xl font-bold text-white mb-1">
               {loading ? '...' : poolState?.locked ? '🔒' : '✨'}
             </div>
-            <div className="text-xs text-purple-300">Pool Status</div>
+            <div className="text-[10px] sm:text-xs text-purple-300">Pool Status</div>
           </div>
         </div>
 
         {/* Main Trading Interface */}
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Trading Card */}
-          <div className="lg:col-span-2 bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-xl rounded-3xl border border-purple-500/30 p-8 shadow-2xl shadow-purple-500/20">
+          <div className="lg:col-span-2 bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-purple-500/30 p-4 sm:p-8 shadow-2xl shadow-purple-500/20">
             {!connected ? (
-              <div className="text-center py-20">
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-500/20 to-violet-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-purple-500/30">
-                  <Lock className="w-10 h-10 text-purple-400" />
+              <div className="text-center py-12 sm:py-20">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-500/20 to-violet-500/20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 border border-purple-500/30">
+                  <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Connect Your Wallet</h3>
-                <p className="text-purple-300 mb-6 max-w-md mx-auto">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Connect Your Wallet</h3>
+                <p className="text-sm sm:text-base text-purple-300 mb-4 sm:mb-6 max-w-md mx-auto px-4">
                   Connect your Solana wallet to start trading with encrypted intents
                 </p>
                 <WalletMultiButton />
               </div>
             ) : (
               <div>
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
                   <div>
-                    <h2 className="text-3xl font-bold text-white mb-1">Trade</h2>
-                    <p className="text-purple-300">Submit encrypted intent</p>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-1">Trade</h2>
+                    <p className="text-sm sm:text-base text-purple-300">Submit encrypted intent</p>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 w-full sm:w-auto">
                     <button
                       onClick={() => setActiveTab('trade')}
-                      className={`px-4 py-2 rounded-lg font-medium transition ${
+                      className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium transition text-sm ${
                         activeTab === 'trade'
                           ? 'bg-purple-600 text-white'
                           : 'bg-purple-900/30 text-purple-300 hover:bg-purple-900/50'
@@ -160,7 +160,7 @@ function App() {
                     </button>
                     <button
                       onClick={() => setActiveTab('intents')}
-                      className={`px-4 py-2 rounded-lg font-medium transition ${
+                      className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium transition text-sm ${
                         activeTab === 'intents'
                           ? 'bg-purple-600 text-white'
                           : 'bg-purple-900/30 text-purple-300 hover:bg-purple-900/50'
@@ -172,12 +172,12 @@ function App() {
                 </div>
 
                 {activeTab === 'trade' ? (
-                  <div className="space-y-6">
+                  <div className="space-y-4 sm:space-y-6">
                     {/* Side Selector */}
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
                       <button
                         onClick={() => setSide('buy')}
-                        className={`py-4 rounded-xl font-bold text-lg transition-all ${
+                        className={`py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg transition-all ${
                           side === 'buy'
                             ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-lg shadow-green-500/50'
                             : 'bg-purple-900/20 text-purple-300 hover:bg-purple-900/30 border border-purple-500/30'
@@ -187,7 +187,7 @@ function App() {
                       </button>
                       <button
                         onClick={() => setSide('sell')}
-                        className={`py-4 rounded-xl font-bold text-lg transition-all ${
+                        className={`py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg transition-all ${
                           side === 'sell'
                             ? 'bg-gradient-to-r from-red-600 to-pink-600 text-white shadow-lg shadow-red-500/50'
                             : 'bg-purple-900/20 text-purple-300 hover:bg-purple-900/30 border border-purple-500/30'
@@ -206,9 +206,9 @@ function App() {
                           value={amount}
                           onChange={(e) => setAmount(e.target.value)}
                           placeholder="0.00"
-                          className="w-full px-6 py-4 bg-purple-900/20 border border-purple-500/30 rounded-xl text-white text-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 outline-none transition"
+                          className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-purple-900/20 border border-purple-500/30 rounded-xl text-white text-base sm:text-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 outline-none transition"
                         />
-                        <div className="absolute right-4 top-1/2 -translate-y-1/2 text-purple-400 text-sm">
+                        <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 text-purple-400 text-sm">
                           SOL
                         </div>
                       </div>
@@ -225,9 +225,9 @@ function App() {
                           value={price}
                           onChange={(e) => setPrice(e.target.value)}
                           placeholder="Market price"
-                          className="w-full px-6 py-4 bg-purple-900/20 border border-purple-500/30 rounded-xl text-white text-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 outline-none transition"
+                          className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-purple-900/20 border border-purple-500/30 rounded-xl text-white text-base sm:text-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 outline-none transition"
                         />
-                        <div className="absolute right-4 top-1/2 -translate-y-1/2 text-purple-400 text-sm">
+                        <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 text-purple-400 text-sm">
                           USDC
                         </div>
                       </div>
@@ -236,19 +236,19 @@ function App() {
                     {/* Submit Button */}
                     <button 
                       onClick={handleSubmitIntent}
-                      className="w-full py-5 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-purple-500/50 transition-all flex items-center justify-center gap-2"
+                      className="w-full py-4 sm:py-5 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-bold text-base sm:text-lg rounded-xl hover:shadow-2xl hover:shadow-purple-500/50 transition-all flex items-center justify-center gap-2"
                     >
                       Submit Encrypted Intent
-                      <ChevronRight className="w-5 h-5" />
+                      <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                     </button>
 
                     {/* Privacy Badge */}
-                    <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4">
-                      <div className="flex items-start gap-3">
-                        <Lock className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
+                    <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-3 sm:p-4">
+                      <div className="flex items-start gap-2 sm:gap-3">
+                        <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400 mt-0.5 flex-shrink-0" />
                         <div>
-                          <h4 className="font-semibold text-purple-300 mb-1">End-to-End Privacy</h4>
-                          <p className="text-sm text-purple-400 leading-relaxed">
+                          <h4 className="font-semibold text-sm sm:text-base text-purple-300 mb-1">End to End Privacy</h4>
+                          <p className="text-xs sm:text-sm text-purple-400 leading-relaxed">
                             Your order is encrypted with ChaCha20-Poly1305. Only Arcium MPC can decrypt and match.
                           </p>
                         </div>
@@ -257,9 +257,9 @@ function App() {
                   </div>
                 ) : (
                   <div className="py-12 text-center">
-                    <Activity className="w-16 h-16 text-purple-600 mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-white mb-2">No Active Intents</h3>
-                    <p className="text-purple-400">Your submitted intents will appear here</p>
+                    <Activity className="w-12 h-12 sm:w-16 sm:h-16 text-purple-600 mx-auto mb-4" />
+                    <h3 className="text-lg sm:text-xl font-bold text-white mb-2">No Active Intents</h3>
+                    <p className="text-sm sm:text-base text-purple-400">Your submitted intents will appear here</p>
                   </div>
                 )}
               </div>
@@ -267,72 +267,72 @@ function App() {
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* Live Stats */}
-            <div className="bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-xl rounded-3xl border border-purple-500/30 p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                  <Activity className="w-5 h-5 text-purple-400" />
+            <div className="bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-purple-500/30 p-4 sm:p-6">
+              <div className="flex items-center justify-between mb-4 sm:mb-6">
+                <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                  <Activity className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
                   Live Stats
                 </h3>
                 {!statsLoading && (
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-xs text-purple-400">Live</span>
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span className="text-[10px] sm:text-xs text-purple-400">Live</span>
                   </div>
                 )}
               </div>
               
-              <div className="space-y-4">
-                <div className="bg-purple-900/20 rounded-lg p-4">
+              <div className="space-y-3 sm:space-y-4">
+                <div className="bg-purple-900/20 rounded-lg p-3 sm:p-4">
                   <div className="text-purple-400 text-xs mb-1">Total Volume</div>
-                  <div className="text-2xl font-bold text-white">$0</div>
+                  <div className="text-xl sm:text-2xl font-bold text-white">$0</div>
                 </div>
                 
-                <div className="bg-purple-900/20 rounded-lg p-4">
+                <div className="bg-purple-900/20 rounded-lg p-3 sm:p-4">
                   <div className="text-purple-400 text-xs mb-1">Intents Settled</div>
-                  <div className="text-2xl font-bold text-white flex items-center gap-2">
+                  <div className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
                     {statsLoading ? '...' : totalIntents}
                     {!statsLoading && totalIntents === 0 && (
-                      <span className="text-xs text-purple-500 font-normal">(Fresh pool)</span>
+                      <span className="text-[10px] sm:text-xs text-purple-500 font-normal">(Fresh pool)</span>
                     )}
                   </div>
                 </div>
               </div>
               
               {totalIntents === 0 && !statsLoading && (
-                <div className="mt-4 text-xs text-purple-400 text-center bg-purple-900/20 rounded-lg p-3">
+                <div className="mt-3 sm:mt-4 text-[10px] sm:text-xs text-purple-400 text-center bg-purple-900/20 rounded-lg p-2 sm:p-3">
                   Submit the first intent to see live updates ⚡
                 </div>
               )}
             </div>
             
             {/* Pool Info */}
-            <div className="bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-xl rounded-3xl border border-purple-500/30 p-6">
-              <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                <Shield className="w-5 h-5 text-purple-400" />
+            <div className="bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-purple-500/30 p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6 flex items-center gap-2">
+                <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
                 Pool Details
               </h3>
               
               {loading ? (
                 <div className="text-purple-400 text-sm">Loading pool state...</div>
               ) : poolState ? (
-                <div className="space-y-4 text-sm">
-                  <div className="bg-purple-900/20 rounded-lg p-3">
-                    <div className="text-purple-400 mb-1">Admin</div>
-                    <div className="font-mono text-xs text-white break-all">
+                <div className="space-y-3 sm:space-y-4 text-sm">
+                  <div className="bg-purple-900/20 rounded-lg p-2 sm:p-3">
+                    <div className="text-purple-400 mb-1 text-xs">Admin</div>
+                    <div className="font-mono text-[10px] sm:text-xs text-white break-all">
                       {poolState.admin.toBase58().slice(0, 8)}...{poolState.admin.toBase58().slice(-8)}
                     </div>
                   </div>
-                  <div className="bg-purple-900/20 rounded-lg p-3">
-                    <div className="text-purple-400 mb-1">Relayer</div>
-                    <div className="font-mono text-xs text-white break-all">
+                  <div className="bg-purple-900/20 rounded-lg p-2 sm:p-3">
+                    <div className="text-purple-400 mb-1 text-xs">Relayer</div>
+                    <div className="font-mono text-[10px] sm:text-xs text-white break-all">
                       {poolState.relayerAuthority.toBase58().slice(0, 8)}...{poolState.relayerAuthority.toBase58().slice(-8)}
                     </div>
                   </div>
-                  <div className="bg-purple-900/20 rounded-lg p-3">
-                    <div className="text-purple-400 mb-1">Arcium Verifier</div>
-                    <div className="font-mono text-xs text-white break-all">
+                  <div className="bg-purple-900/20 rounded-lg p-2 sm:p-3">
+                    <div className="text-purple-400 mb-1 text-xs">Arcium Verifier</div>
+                    <div className="font-mono text-[10px] sm:text-xs text-white break-all">
                       {poolState.arciumVerifier.toBase58().slice(0, 8)}...{poolState.arciumVerifier.toBase58().slice(-8)}
                     </div>
                   </div>
@@ -342,8 +342,8 @@ function App() {
               )}
             </div>
 
-            {/* Features */}
-            <div className="bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-xl rounded-3xl border border-purple-500/30 p-6">
+            {/* Features - Hidden on Mobile */}
+            <div className="hidden lg:block bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-xl rounded-3xl border border-purple-500/30 p-6">
               <h3 className="text-lg font-bold text-white mb-4">Why ShadowX?</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex items-start gap-3">
@@ -379,20 +379,20 @@ function App() {
         </div>
 
         {/* Footer Badge */}
-        <div className="mt-12 text-center">
-          <div className="inline-block bg-purple-900/20 backdrop-blur-sm rounded-2xl border border-purple-500/30 px-8 py-4">
-            <div className="text-xs text-purple-400 mb-2">BUILT FOR</div>
-            <div className="flex items-center gap-4 text-sm">
+        <div className="mt-8 sm:mt-12 text-center">
+          <div className="inline-block bg-purple-900/20 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-purple-500/30 px-4 sm:px-8 py-3 sm:py-4">
+            <div className="text-[10px] sm:text-xs text-purple-400 mb-2">BUILT FOR</div>
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs sm:text-sm">
               <div>
                 <div className="font-bold text-purple-400">Colosseum 2026</div>
-                <div className="text-xs text-purple-500">Solana Frontier</div>
+                <div className="text-[10px] sm:text-xs text-purple-500">Solana Frontier</div>
               </div>
-              <div className="text-purple-600">•</div>
+              <div className="hidden sm:block text-purple-600">•</div>
               <div>
                 <div className="font-bold text-purple-400">Arcium MPC</div>
-                <div className="text-xs text-purple-500">Privacy Layer</div>
+                <div className="text-[10px] sm:text-xs text-purple-500">Privacy Layer</div>
               </div>
-              <div className="text-purple-600">•</div>
+              <div className="hidden sm:block text-purple-600">•</div>
               <div className="font-bold text-red-400">May 10, 2026</div>
             </div>
           </div>
